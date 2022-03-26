@@ -1,0 +1,18 @@
+{
+  "server": {
+    "port": 80,
+    "context": "/"
+  },
+  "random": {
+    "number": {
+      "maximum": 5
+    }
+  },
+  "logging": {
+    "format": "json",
+    "level": {
+      "/": "error"
+    }
+  }
+}
+

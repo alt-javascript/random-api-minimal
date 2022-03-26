@@ -1,0 +1,14 @@
+{
+  "random": {
+    "number": {
+      "maximum": 9
+    }
+  },
+  "logging": {
+    "format": "json",
+    "level": {
+      "/": "error"
+    }
+  }
+}
+

@@ -1,0 +1,22 @@
+{
+  "server" : {
+      "port": 8081
+    },
+  "random" : {
+    "number" : {
+      "maximum" : 1
+    }
+  },
+  "logging" : {
+    "format" : "text",
+    "level": {
+      "/" : "verbose",
+      "@alt-javascript/cdi" : "verbose"
+    },
+    "test" : {
+      "fixtures" : {
+        "quiet" : false
+      }
+    }
+  }
+}
