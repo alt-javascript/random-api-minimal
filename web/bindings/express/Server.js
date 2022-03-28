@@ -1,6 +1,6 @@
 export default class Server {
 
-    static qualifier = '@alt-javascript/random-api/Server';
+    static qualifier = '@alt-javascript/random-api-minimal/Server';
 
     constructor( options ) {
         this.logger = options?.logger || null;

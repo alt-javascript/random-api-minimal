@@ -4,7 +4,7 @@
     },
   "random" : {
     "number" : {
-      "maximum" : 1
+      "maximum" : 6
     }
   },
   "logging" : {

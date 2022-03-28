@@ -1,5 +1,5 @@
 export default class RandomNumber {
-    static qualifier = '@alt-javascript/random-api-minimal/Random';
+    static qualifier = '@alt-javascript/random-api-minimal/RandomNumber';
 
     constructor(options) {
         this.logger = options?.logger || null;
