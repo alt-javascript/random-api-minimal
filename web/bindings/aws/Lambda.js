@@ -23,7 +23,7 @@ export default class Lambda {
 
         const headers = {
             'Content-Type': 'application/json',
-           'Access-Control-Allow-Origin' : ['*'],
+           'Access-Control-Allow-Origin' : '*',
             'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,OPTIONS',
             'Access-Control-Allow-Headers': 'Content-Type, Authorization',
         };
@@ -31,18 +31,18 @@ export default class Lambda {
         try {
             switch (event.routeKey) {
 
-                case `OPTIONS ${this.context}*`:
-                    this.logger?.info(`OPTIONS ${this.context}*`, event.body);
+                case `OPTIONS ${this.context}`:
+                    this.logger?.info(`OPTIONS ${this.context}`, event.body);
                     statusCode = 200;
                     break;
 
-                case `GET ${this.context}*`:
-                    this.logger?.info(`GET ${this.context}*`, event.body);
+                case `GET ${this.context}`:
+                    this.logger?.info(`GET ${this.context}`, event.body);
                     // JSON.parse(event.body);
 
                     let result = this.randomNumber.get();
 
-                    body = `${JSON.stringify(result)}`;
+                    body = JSON.stringify(result);
                     statusCode = 200;
                     break;
 
