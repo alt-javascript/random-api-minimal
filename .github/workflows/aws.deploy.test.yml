@@ -31,10 +31,11 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm ci --only=prod
+      - run: npm i --only=prod
       - run: mkdir dist
       - run: zip -r dist/function node_modules config service web/bindings/aws index.js
       - run: aws lambda update-function-code --function-name test-random-api-minimal --zip-file fileb://./dist/function.zip
+      - run: aws lambda update-function-code --function-name prod-random-api-minimal --zip-file fileb://./dist/function.zip
         env:
           AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
           AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
