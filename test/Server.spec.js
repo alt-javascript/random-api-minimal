@@ -8,7 +8,6 @@ import express from 'express';
 import { LoggerFactory } from '@alt-javascript/logger';
 import RandomNumber from '../service/RandomNumber.js';
 import Server from '../web/bindings/express/Server.js';
-import contexts from "../web/bindings/express/contexts.js";
 
 const logger = LoggerFactory.getLogger('@alt-javascript/random-api-minimal/test/Server_spec');
 const { assert } = chai;
@@ -38,7 +37,7 @@ beforeEach(async () => {
   logger.verbose('before each setup completed');
 });
 
-describe('Server Specification',  () => {
+describe('Server Specification', () => {
   it('Generates a random number between 1 and zero', (done) => {
     const server = new Server(
       {
@@ -59,13 +58,14 @@ describe('Server Specification',  () => {
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200)
-      .then( res => {
-            const code = res.statusCode;
-            const random = res.body;
-            assert.equal(code, 200, 'GET response code is 200');
-            assert.isAtLeast(random, 0, 'Random Number is at least 0');
-            assert.isAtMost(random, 1, 'Random Number is at most 1');
-            return done();
-      }).catch(err => done(err));
+      .then((res) => {
+        const code = res.statusCode;
+        const random = res.body;
+        assert.equal(code, 200, 'GET response code is 200');
+        assert.isAtLeast(random, 0, 'Random Number is at least 0');
+        assert.isAtMost(random, 1, 'Random Number is at most 1');
+        return done();
+      })
+      .catch((err) => done(err));
   });
 });
