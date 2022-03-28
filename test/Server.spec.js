@@ -8,7 +8,7 @@ import express from 'express';
 import { LoggerFactory } from '@alt-javascript/logger';
 import RandomNumber from '../service/RandomNumber.js';
 import Server from '../web/bindings/express/Server.js';
-import contexts from "../contexts.js";
+import contexts from "../web/bindings/express/contexts.js";
 
 const logger = LoggerFactory.getLogger('@alt-javascript/random-api-minimal/test/Server_spec');
 const { assert } = chai;

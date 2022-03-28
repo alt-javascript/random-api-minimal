@@ -1,6 +1,6 @@
 export default class Server {
 
-    static qualifier = '@alt-javascript/random-api-minimal/Server';
+    static qualifier = '@alt-javascript/random-api-minimal/web/bindings/express/Server';
 
     constructor( options ) {
         this.logger = options?.logger || null;
@@ -33,7 +33,6 @@ export default class Server {
         this.router.get('/*', (req, res) => {
             this.logger?.verbose('GET /*:');
             res.json(this.randomNumber.get());
-            // res.send(200);
         });
         this.logger?.verbose('Initialising server completed.')
     }

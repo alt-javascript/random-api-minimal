@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import express from 'express';
-import Server from './web/bindings/express/Server.js';
-import RandomNumber from './service/RandomNumber.js';
+import Server from './Server.js';
+import RandomNumber from '../../../service/RandomNumber.js';
 
 export default [
   Server,
