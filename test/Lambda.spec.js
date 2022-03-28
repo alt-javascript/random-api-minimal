@@ -35,7 +35,7 @@ beforeEach(async () => {
 
 describe('Lambda Specification', () => {
   it('Generates a random number between 1 and zero', async () => {
-    const result = await handler({ routeKey: 'GET /*' }, null);
+    const result = await handler({ routeKey: 'GET /' }, null);
     const body = JSON.parse(result.body);
     assert.equal(result.statusCode, 200, 'GET response code is 200');
     assert.isAtLeast(body, 0, 'Random Number is at least 0');
