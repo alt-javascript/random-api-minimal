@@ -8,7 +8,7 @@ export default class RandomNumber {
 
     get (){
         this.logger?.verbose(`Generating random number between 0 and ${this.maximum}`);
-        let random = Math.floor(Math.random() * this.maximum);
+        let random = Math.floor(Math.random() * (this.maximum+1));
         this.logger?.verbose(`Result is: ${random}`);
         return random;
     }

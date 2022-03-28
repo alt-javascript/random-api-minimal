@@ -46,7 +46,7 @@ describe('Server Specification', () => {
         router: express.Router(),
         context: '/',
         randomNumber: new RandomNumber({
-          maximum: 2,
+          maximum: 1,
           logger: LoggerFactory.getLogger(RandomNumber.qualifier),
         }),
       },

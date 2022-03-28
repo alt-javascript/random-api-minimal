@@ -35,7 +35,7 @@ beforeEach(async () => {
 describe('RandomNumber Specification', () => {
   it('Generates a random number between 1 and zero', () => {
     const randomNumber = new RandomNumber({
-      maximum: 2,
+      maximum: 1,
       logger: LoggerFactory.getLogger(RandomNumber.qualifier),
     });
 

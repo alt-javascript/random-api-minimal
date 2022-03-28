@@ -1,7 +1,7 @@
 {
   "random": {
     "number": {
-      "maximum": 10
+      "maximum": 9
     }
   },
   "logging": {
