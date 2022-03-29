@@ -1,4 +1,4 @@
 #!/bin/bash
 set -x #echo on
-#minikube start -p cicd --extra-config=apiserver.service-node-port-range=1-65535
-minikube start -p cicd --driver=parallels --extra-config=apiserver.service-node-port-range=1-65535
+#force hyperkit on Mac Intel
+minikube start -p cicd --driver=hyperkit --extra-config=apiserver.service-node-port-range=1-65535
