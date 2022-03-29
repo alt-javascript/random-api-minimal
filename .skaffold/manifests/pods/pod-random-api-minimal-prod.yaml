@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-random-api-minimal-prod
+  labels:
+    app: pod-random-api-minimal-prod
+spec:
+  containers:
+    - name: pod-random-api-minimal-prod
+      image: alt-javascript/random-api-minimal
+      ports:
+        - containerPort: 80
+      env:
+        - name: NODE_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-random-api-minimal-prod
+              key: node.env
+        - name: NODE_APP_INSTANCE
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-random-api-minimal-prod
+              key: node.app.instance

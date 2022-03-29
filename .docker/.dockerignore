@@ -1,0 +1,10 @@
+.docker/
+.skaffold/
+.gitlab/
+.github/
+test/
+.gitignore
+.npmignore
+.nyrc
+LICENSE
+README.md

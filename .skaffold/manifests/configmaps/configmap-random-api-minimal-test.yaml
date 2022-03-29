@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-random-api-minimal-test
+data:
+  node.env: test
+  node.app.instance: minikube

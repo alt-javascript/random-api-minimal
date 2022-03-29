@@ -1,6 +1,6 @@
 {
   "logging": {
-    "format": "json",
+    "format": "text",
     "level": {
       "/": "info",
       "@alt-javascript/random-api-minimal" : "verbose"

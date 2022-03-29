@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-random-api-minimal-prod
+spec:
+  selector:
+    app: pod-random-api-minimal-prod
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

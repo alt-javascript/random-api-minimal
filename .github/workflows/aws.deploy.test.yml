@@ -31,9 +31,9 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm i --only=prod
+      - run: npm ci --production
       - run: mkdir dist
-      - run: zip -r dist/function node_modules config service web/bindings/aws index.js
+      - run: zip -r dist/function node_modules configmaps service web/bindings/aws index.js
       - run: aws lambda update-function-code --function-name test-random-api-minimal --zip-file fileb://./dist/function.zip
       - run: aws lambda update-function-code --function-name prod-random-api-minimal --zip-file fileb://./dist/function.zip
         env:

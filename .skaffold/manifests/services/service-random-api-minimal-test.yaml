@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-random-api-minimal-test
+spec:
+  selector:
+    app: pod-random-api-minimal-test
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 8181 # range limited to 30000-32767

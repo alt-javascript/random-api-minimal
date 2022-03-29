@@ -1,0 +1,50 @@
+apiVersion: skaffold/v2beta24
+kind: Config
+profiles:
+  - name: minikube-test
+    activation:
+      - kubeContext: minikube
+        command: dev,run
+    build:
+      tagPolicy:
+        gitCommit: { }
+      artifacts:
+        - image: alt-javascript/random-api-minimal
+          docker:
+            dockerfile: .docker/Dockerfile
+    deploy:
+      kubectl:
+        manifests:
+          - .skaffold/manifests/configmaps/configmap-random-api-minimal-test.yaml
+          - .skaffold/manifests/pods/pod-random-api-minimal-test.yaml
+          - .skaffold/manifests/services/service-random-api-minimal-test.yaml
+    portForward:
+      - resourceType: service
+        resourceName: service-random-api-minimal-test
+        namespace: default
+        port: 80
+        localPort: 8181
+
+  - name: minikube-prod
+    activation:
+      - kubeContext: minikube
+        command: dev,run
+    build:
+      tagPolicy:
+        gitCommit: { }
+      artifacts:
+        - image: alt-javascript/random-api-minimal
+          docker:
+            dockerfile: .docker/Dockerfile
+    deploy:
+      kubectl:
+        manifests:
+          - .skaffold/manifests/configmaps/configmap-random-api-minimal-prod.yaml
+          - .skaffold/manifests/pods/pod-random-api-minimal-prod.yaml
+          - .skaffold/manifests/services/service-random-api-minimal-prod.yaml
+    portForward:
+      - resourceType: service
+        resourceName: service-random-api-minimal-prod
+        namespace: default
+        port: 80
+        localPort: 8281

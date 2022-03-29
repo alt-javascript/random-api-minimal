@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-random-api-minimal-prod
+data:
+  node.env: production
+  node.app.instance: minikube
