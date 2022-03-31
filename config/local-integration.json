@@ -1,9 +1,9 @@
 {
+
   "logging" : {
     "format" : "text",
     "level": {
       "/" : "verbose",
-      "@alt-javascript/cdi" : "verbose"
     },
     "test" : {
       "fixtures" : {
@@ -15,5 +15,5 @@
         "context" : "/"
       }
     }
-  }
+  },
 }

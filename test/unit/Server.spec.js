@@ -6,10 +6,10 @@ import request from 'supertest';
 import express from 'express';
 
 import { LoggerFactory } from '@alt-javascript/logger';
-import RandomNumber from '../service/RandomNumber.js';
-import Server from '../web/bindings/express/Server.js';
+import RandomNumber from '../../service/RandomNumber.js';
+import Server from '../../web/bindings/express/Server.js';
 
-const logger = LoggerFactory.getLogger('@alt-javascript/random-api-minimal/test/Server_spec');
+const logger = LoggerFactory.getLogger('@alt-javascript/random-api-minimal/test/unit/Server_spec');
 const { assert } = chai;
 chai.use(chaiAsPromised);
 

@@ -1,0 +1,38 @@
+#!/bin/bash
+set -x #echo on
+
+npm ci
+npm run lint
+npm run coverage
+
+.minikube/start
+eval $(minikube -p cicd docker-env)
+env | sort | grep DOCKER
+
+.skaffold/bin/deploy minikube-test
+
+export MINIKUBE_IP=`minikube -p cicd ip`
+echo MINIKUBE_IP=$MINIKUBE_IP
+
+echo integration tests here
+
+curl http://$MINIKUBE_IP:8181
+curl http://$MINIKUBE_IP:8181
+
+
+echo regression tests here
+
+curl http://$MINIKUBE_IP:8181
+curl http://$MINIKUBE_IP:8181
+
+.skaffold/bin/deploy minikube-prod
+
+echo prod verification tests here
+
+curl http://$MINIKUBE_IP:8281
+curl http://$MINIKUBE_IP:8281
+curl http://$MINIKUBE_IP:8281
+curl http://$MINIKUBE_IP:8281
+
+.skaffold/bin/delete minikube-test
+.skaffold/bin/delete minikube-prod

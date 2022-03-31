@@ -1,11 +1,10 @@
 /* eslint-disable import/extensions */
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
-
 import { LoggerFactory } from '@alt-javascript/logger';
-import { handler } from '../index.js';
+import RandomNumber from '../../service/RandomNumber.js';
 
-const logger = LoggerFactory.getLogger('@alt-javascript/random-api-minimal/test/Lambda_spec');
+const logger = LoggerFactory.getLogger('@alt-javascript/random-api-minimal/test/unit/RandomNumber_spec');
 const { assert } = chai;
 chai.use(chaiAsPromised);
 
@@ -33,12 +32,16 @@ beforeEach(async () => {
   logger.verbose('before each setup completed');
 });
 
-describe('Lambda Specification', () => {
-  it('Generates a random number between 1 and zero', async () => {
-    const result = await handler({ routeKey: 'GET /' }, null);
-    const body = JSON.parse(result.body);
-    assert.equal(result.statusCode, 200, 'GET response code is 200');
-    assert.isAtLeast(body, 0, 'Random Number is at least 0');
-    assert.isAtMost(body, 5, 'Random Number is at most 1');
+describe('RandomNumber Specification', () => {
+  it('Generates a random number between 1 and zero', () => {
+    const randomNumber = new RandomNumber({
+      maximum: 1,
+      logger: LoggerFactory.getLogger(RandomNumber.qualifier),
+    });
+
+    const random = randomNumber.get();
+
+    assert.isAtLeast(random, 0, 'Random Number is at least 0');
+    assert.isAtMost(random, 1, 'Random Number is at most 1');
   });
 });

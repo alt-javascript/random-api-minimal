@@ -10,14 +10,19 @@
     "lint": "npx eslint \"./*.js\" \"./test/**/*.js\" --fix",
     "test": "npm run test:unit",
     "test:unit": "npm run test:tdd",
-    "test:tdd": "mocha --require test/fixtures/index.js",
+    "test:tdd": "mocha --require test/fixtures/index.js --fail-zero --recursive --exclude test/integration/**/*.js",
+    "test:integration": "mocha --require test/fixtures/index.js --fail-zero=true --recursive --exclude test/unit/**/*.js",
     "test:bdd": "npm run cucumber",
     "coverage": "npm run c8",
     "mocha": "mocha --require test/fixtures/index.js",
     "cucumber": "npx run-script-os",
     "cucumber:windows": ".\\node_modules\\.bin\\cucumber-js.cmd features\\*.feature --publish-quiet",
     "cucumber:macos:nix:default": "./node_modules/.bin/cucumber-js features\\*.feature --publish-quiet",
-    "c8": "c8 --reporter=json-summary --reporter=text-summary --reporter=lcov npm run test"
+    "c8": "c8 --reporter=json-summary --reporter=text-summary --reporter=lcov npm run test",
+
+
+    "minikube:ip" : "export MINIKUBE_IP=`minikub -p cicd ip`",
+    "minikube:next" : "echo $MINIKUBE_IP"
   },
   "license": "MIT",
   "dependencies": {

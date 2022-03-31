@@ -1,3 +1,0 @@
-#!/bin/bash
-set -x #echo on
-skaffold -f .skaffold/skaffold.yaml deploy -p $1 --build-artifacts=.skaffold/tags.json --port-forward=off $2 $3 $4 $5 $6 $7 $8 $9

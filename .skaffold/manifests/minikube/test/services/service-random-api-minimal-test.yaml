@@ -1,10 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: service-random-api-minimal-prod
+  name: service-random-api-minimal-test
 spec:
   selector:
-    app: pod-random-api-minimal-prod
+    app: pod-random-api-minimal-test
+  type: NodePort
   ports:
     - protocol: TCP
       port: 80

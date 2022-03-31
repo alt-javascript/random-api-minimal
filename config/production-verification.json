@@ -1,0 +1,20 @@
+{
+  "logging": {
+    "format": "json",
+    "level": {
+      "/": "info",
+      "@alt-javascript/random-api-minimal" : "verbose"
+    }
+  },
+  "test" : {
+    "fixtures" : {
+      "quiet" : false
+    },
+    "server" : {
+      "protocol": "https://",
+      "host": "futph74eyi.execute-api.ap-southeast-2.amazonaws.com",
+      "context" : "/"
+    }
+  }
+}
+

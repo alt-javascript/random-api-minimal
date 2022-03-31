@@ -15,9 +15,7 @@ profiles:
     deploy:
       kubectl:
         manifests:
-          - .skaffold/manifests/configmaps/configmap-random-api-minimal-test.yaml
-          - .skaffold/manifests/pods/pod-random-api-minimal-test.yaml
-          - .skaffold/manifests/services/service-random-api-minimal-test.yaml
+          - .skaffold/manifests/minikube/test/**/*.yaml
     portForward:
       - resourceType: service
         resourceName: service-random-api-minimal-test
@@ -39,9 +37,7 @@ profiles:
     deploy:
       kubectl:
         manifests:
-          - .skaffold/manifests/configmaps/configmap-random-api-minimal-prod.yaml
-          - .skaffold/manifests/pods/pod-random-api-minimal-prod.yaml
-          - .skaffold/manifests/services/service-random-api-minimal-prod.yaml
+          - .skaffold/manifests/minikube/prod/**/*.yaml
     portForward:
       - resourceType: service
         resourceName: service-random-api-minimal-prod

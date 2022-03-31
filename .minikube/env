@@ -1,4 +1,4 @@
 #!/bin/bash
-echo 'To set Docker to use minikube''s cicd profile Docker daemon, run:'
+echo 'To set Docker to use minikube''s cicd.minikube profile Docker daemon, run:'
 echo 'eval $(minikube -p cicd docker-env)'
 echo 'env | sort | grep DOCKER'
